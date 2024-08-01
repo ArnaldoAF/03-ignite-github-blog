@@ -52,17 +52,17 @@ export const GlobalStyle = createGlobalStyle`
     
 .title-L {
    font-family: "Nunito", sans-serif;
-   font-size: 2rem;
-   font-weight: 800;
+   font-size: 1.5rem;
+   font-weight: bold;
    line-height: 130%;
-   color: ${(props) => props.theme["base-subtitle"]};
+   color: ${(props) => props.theme["base-title"]};
    
 }
 
 
 .title-M {
    font-family: "Nunito", sans-serif;
-   font-size: 1.5rem;
+   font-size: 1rem;
    font-weight: 800;
    line-height: 130%;
    color: ${(props) => props.theme["base-subtitle"]};
