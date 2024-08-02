@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
-  flex-direction: column;
-
+export const PostListContainer = styled.div`
   display: flex;
   flex: 1;
+  margin-top: 4.5rem;
 `;
