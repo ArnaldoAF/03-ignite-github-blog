@@ -114,7 +114,7 @@ export const GlobalStyle = createGlobalStyle`
    font-size: 0.85rem;
    font-weight: 400;
    line-height: 130%;
-   color: ${(props) => props.theme["base-text"]};
+   color: ${(props) => props.theme["base-span"]};
    
 }
 

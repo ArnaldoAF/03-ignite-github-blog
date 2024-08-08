@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const PostListContainer = styled.div`
-  display: flex;
-  flex: 1;
   margin-top: 4.5rem;
 
   form {
     display: flex;
     flex: 1;
     flex-direction: column;
+    margin-bottom: 3rem;
   }
 
-  div {
+  .form-header {
     display: flex;
     flex: 1;
     flex-direction: row;
@@ -31,5 +30,11 @@ export const PostListContainer = styled.div`
     &:focus {
       border: 1px solid ${(props) => props.theme["blue"]};
     }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
   }
 `;

@@ -5,4 +5,6 @@ export const HomeContainer = styled.div`
 
   display: flex;
   flex: 1;
+
+  margin-bottom: 5rem;
 `;
