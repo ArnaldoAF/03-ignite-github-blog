@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled.a`
   display: flex;
   flex-direction: column;
   background: ${(props) => props.theme["base-post"]};
