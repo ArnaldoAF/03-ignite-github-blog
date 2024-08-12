@@ -1,9 +1,10 @@
 import React from 'react'
 import { PostCardContainer } from './styles'
+import { NavLink } from 'react-router-dom'
 
 export function PostCard() {
     return (
-        <PostCardContainer>
+        <PostCardContainer to="/post">
             <div>
                 <h4 className='title-S'>JavaScript data types and data structures</h4>
                 <p className='text-S'>Há 1 dia</p>
@@ -13,5 +14,6 @@ export function PostCard() {
             </main>
 
         </PostCardContainer>
+
     )
 }

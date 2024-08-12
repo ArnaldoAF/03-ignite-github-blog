@@ -1,13 +1,13 @@
 
-import { PostList } from "../../components/PostList";
-import { UserCard } from "../../components/UserCard";
+import { PostContent } from "../../components/PostContent";
+import { PostHeader } from "../../components/PostHeader";
 import { PostPageContainer } from "./styles";
 
 export function PostPage() {
     return (
         <PostPageContainer>
-            <UserCard />
-            <PostList />
+            <PostHeader />
+            <PostContent />
         </PostPageContainer>
     )
 }

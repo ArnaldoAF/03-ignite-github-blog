@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const PostCardContainer = styled.a`
+export const PostCardContainer = styled(NavLink)`
   display: flex;
   flex-direction: column;
   background: ${(props) => props.theme["base-post"]};
@@ -10,6 +11,13 @@ export const PostCardContainer = styled.a`
   overflow: hidden;
   box-sizing: border-box;
   cursor: pointer;
+  text-decoration: none;
+    color: ${(props) => props.theme["base-text"]};
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme["base-text"]};
+  }
 
   &:hover {
     border: 1px solid ${(props) => props.theme["base-label"]};
