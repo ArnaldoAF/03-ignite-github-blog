@@ -1,5 +1,6 @@
 import React from 'react'
 import { UserCardContainer } from './styles'
+import { IconText } from '../IconText'
 
 export function UserCard() {
     return (
@@ -12,9 +13,9 @@ export function UserCard() {
                 </div>
                 <span className='text-M'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper scelerisque libero, a ullamcorper dui dictum quis. Vestibulum rutrum, sapien in faucibus posuere, lectus leo lacinia mi, eget fermentum ante. </span>
                 <div className="footer">
-                    <div>ArnaldoAF</div>
-                    <div>Rockseat</div>
-                    <div>32 seguidores</div>
+                    <IconText text="ArnaldoAF" icon='github' />
+                    <IconText text="Rockseat" icon='building' />
+                    <IconText text={`${32} seguidores`} icon='users' />
                 </div>
             </div>
         </UserCardContainer>
