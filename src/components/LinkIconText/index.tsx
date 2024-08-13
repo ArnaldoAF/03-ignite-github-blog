@@ -1,8 +1,7 @@
 import React from 'react'
-import { LinkIconTextContainer } from './styles'
+import { LinkIconTextAchorContainer, LinkIconTextContainer } from './styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBuilding, faCalendarDay, faCoffee, faComment, faUsers, faCat, faChevronLeft, faUpRightFromSquare, } from '@fortawesome/free-solid-svg-icons'
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faChevronLeft, faUpRightFromSquare, } from '@fortawesome/free-solid-svg-icons'
 
 interface LinkIconTextProps {
     text: string;
@@ -18,10 +17,23 @@ export function LinkIconText(props: LinkIconTextProps) {
         external: faUpRightFromSquare
     }
 
+    if (icon == "external") {
+        return (
+            <LinkIconTextAchorContainer
+                href={href}
+                target="_blank">
+                <span>{text}</span>
+                <FontAwesomeIcon icon={iconObj[icon]} color='#3294F8' />
+            </LinkIconTextAchorContainer>
+        )
+    }
     return (
-        <LinkIconTextContainer to={href} className={icon == "back" ? 'reverse' : ''}>
+        <LinkIconTextContainer
+            to={href}
+            className={icon == "back" ? 'reverse' : ''}>
             <span>{text}</span>
             <FontAwesomeIcon icon={iconObj[icon]} color='#3294F8' />
         </LinkIconTextContainer>
     )
 }
+

@@ -14,6 +14,12 @@ export const UserCardContainer = styled.div`
     border-radius: 8px;
   }
 
+  .content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
   .header {
     display: flex;
     flex-direction: row;
@@ -24,6 +30,8 @@ export const UserCardContainer = styled.div`
 
   .footer {
     display: flex;
+    flex: 1;
+    align-items: flex-end;
     flex-direction: row;
     gap: 1.5rem;
     margin-top: 0.5rem;

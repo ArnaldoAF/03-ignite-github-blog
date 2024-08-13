@@ -1,22 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserCardContainer } from './styles'
 import { IconText } from '../IconText'
 import { LinkIconText } from '../LinkIconText'
+import { api } from '../../services/api'
+
+interface IUser {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+    name: string;
+    company: string;
+    bio: string;
+    followers: number;
+}
 
 export function UserCard() {
+    const [user, setUser] = useState<IUser>()
+
+    async function getUser() {
+        const response = await api.get<IUser>('users/ArnaldoAF')
+
+        console.log(response.data)
+        setUser(response.data)
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
     return (
         <UserCardContainer>
-            <img src="https://api.dicebear.com/9.x/bottts/jpg" alt="" />
+            <img src={user?.avatar_url} alt="" />
             <div className="content">
                 <div className="header">
-                    <h1 className='title-L'>Arnaldo Assis</h1>
-                    <LinkIconText icon='external' text='github' href='/' />
+                    <h1 className='title-L'>{user?.name}</h1>
+                    <LinkIconText icon='external' text='github' href={user?.html_url} />
                 </div>
-                <span className='text-M'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper scelerisque libero, a ullamcorper dui dictum quis. Vestibulum rutrum, sapien in faucibus posuere, lectus leo lacinia mi, eget fermentum ante. </span>
+                <span className='text-M'>{user?.bio}</span>
                 <div className="footer">
-                    <IconText text="ArnaldoAF" icon='github' />
-                    <IconText text="Rockseat" icon='building' />
-                    <IconText text={`${32} seguidores`} icon='users' />
+                    <IconText text={user?.login || ''} icon='github' />
+                    {user?.company && <IconText text={user?.company || ''} icon='building' />}
+                    <IconText text={`${user?.followers} seguidores`} icon='users' />
                 </div>
             </div>
         </UserCardContainer>
