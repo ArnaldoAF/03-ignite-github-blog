@@ -12,12 +12,14 @@ export const PostCardContainer = styled(NavLink)`
   box-sizing: border-box;
   cursor: pointer;
   text-decoration: none;
-    color: ${(props) => props.theme["base-text"]};
+  color: ${(props) => props.theme["base-text"]};
 
   a {
     text-decoration: none;
     color: ${(props) => props.theme["base-text"]};
   }
+
+  border: 1px solid transparent;
 
   &:hover {
     border: 1px solid ${(props) => props.theme["base-label"]};

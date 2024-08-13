@@ -2,13 +2,16 @@ import React from 'react'
 import { PostHeaderContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 import { IconText } from '../IconText'
+import { LinkIconText } from '../LinkIconText'
 
 export function PostHeader() {
     return (
         <PostHeaderContainer>
             <div className="header">
-                <NavLink to="/">Voltar</NavLink>
-                <NavLink to="/">Ver no github</NavLink>
+
+                <LinkIconText icon='back' text='voltar' href='/' />
+                <LinkIconText icon='external' text='Ver no github' href='/' />
+
             </div>
             <h1 className='title-L'>JavaScript data types and data structures</h1>
             <div className="footer">
