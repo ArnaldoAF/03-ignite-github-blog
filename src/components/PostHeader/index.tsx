@@ -3,21 +3,30 @@ import { PostHeaderContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 import { IconText } from '../IconText'
 import { LinkIconText } from '../LinkIconText'
+import { IPost } from "../../interfaces/postInsterfaces";
+import { dateString } from '../../utils/formatter'
 
-export function PostHeader() {
+
+interface PostHeaderProps {
+    post: IPost
+}
+
+export function PostHeader(props: PostHeaderProps) {
+    const { post } = props
+
     return (
         <PostHeaderContainer>
             <div className="header">
 
                 <LinkIconText icon='back' text='voltar' href='/' />
-                <LinkIconText icon='external' text='Ver no github' href='/' />
+                <LinkIconText icon='external' text='Ver no github' href={post.html_url} />
 
             </div>
-            <h1 className='title-L'>JavaScript data types and data structures</h1>
+            <h1 className='title-L'>{post.title}</h1>
             <div className="footer">
-                <IconText text="cameronwll" icon='github' />
-                <IconText text="Há 1 dia" icon='calendar' />
-                <IconText text={`${5} comentários`} icon='comentary' />
+                <IconText text={post.user.login} icon='github' />
+                <IconText text={dateString(post.created_at)} icon='calendar' />
+                <IconText text={`${post.comments} comentários`} icon='comentary' />
             </div>
         </PostHeaderContainer>
     )

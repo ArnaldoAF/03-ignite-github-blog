@@ -7,6 +7,7 @@ import { dateString } from '../../utils/formatter'
 interface PostCardProps {
     post: IPost
 }
+
 export function PostCard(props: PostCardProps) {
     const { post } = props
     return (
