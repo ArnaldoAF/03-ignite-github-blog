@@ -29,7 +29,6 @@ export function PostPage() {
             {post &&
                 <>
                     <PostHeader post={post} />
-                    {postId}
                     <PostContent post={post} />
                 </>
             }
