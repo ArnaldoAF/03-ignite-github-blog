@@ -10,11 +10,27 @@ import { IPost } from '../../interfaces/postInsterfaces'
 export function PostList() {
     const [postList, setPostList] = useState<IPost[]>([])
 
-    async function getPosts() {
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const [delayedSearchTerm, setDelayedSearchTerm] = React.useState("");
+
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(async () => {
+            console.log(searchTerm);
+            // Send Axios request here
+            setDelayedSearchTerm(searchTerm);
+            await getPosts(searchTerm)
+        }, 1000);
+
+        return () => clearTimeout(delayDebounceFn);
+    }, [searchTerm]);
+
+    async function getPosts(searchString?: string) {
+        const search = searchString;
         const repo = `repo:ArnaldoAF/03-ignite-github-blog/`;
         const response = await api.get('search/issues', {
             params: {
-                q: repo
+                q: `${search && search.trim().length > 0 ? search + " " : ''}${repo}`
+                // q: repo
             }
         })
 
@@ -36,7 +52,7 @@ export function PostList() {
                     <p className='text-S'>{postList.length} publicações</p>
 
                 </div>
-                <input type="text" placeholder='Buscar Conteúdo' />
+                <input type="text" placeholder='Buscar Conteúdo' onChange={(e) => setSearchTerm(e.target.value)} />
             </form>
             <main className='content'>
                 {postList.map(post => <PostCard post={post} />)}
