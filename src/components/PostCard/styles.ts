@@ -7,7 +7,7 @@ export const PostCardContainer = styled(NavLink)`
   background: ${(props) => props.theme["base-post"]};
   padding: 2rem;
   border-radius: 10px;
-  height: 16.25rem;
+  height: 15rem;
   overflow: hidden;
   box-sizing: border-box;
   cursor: pointer;

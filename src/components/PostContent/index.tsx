@@ -15,7 +15,6 @@ export function PostContent(props: PostContentProps) {
 
     return (
         <PostContentContainer>
-
             <Markdown remarkPlugins={[remarkGfm]}>
 
                 {post.body}
